@@ -1,15 +1,16 @@
 'use client'
-import React, { useEffect, useRef } from 'react';
+
+import React, { useEffect, useRef } from 'react'
 
 export function Game() {
-  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const canvasRef = useRef<HTMLCanvasElement>(null)
+
   useEffect(() => {
-    if (!canvasRef.current) {
-      throw new Error('objectがnull');
-    }
-    const canvas = canvasRef.current;
-    const ctx = canvas.getContext('2d');
-    if (!ctx) return;
+    const canvas = canvasRef.current
+    if (!canvas) return
+
+    const ctx = canvas.getContext('2d')
+    if (!ctx) return
 
     // Game constants
     const CANVAS_WIDTH = 800
@@ -44,19 +45,19 @@ export function Game() {
     }
 
     // Draw functions
-    function drawPaddle(ctx: CanvasRenderingContext2D) {
+    function drawPaddle() {
       ctx.fillStyle = '#FFFFFF'
       ctx.fillRect(paddleX, CANVAS_HEIGHT - PADDLE_HEIGHT - 30, PADDLE_WIDTH, PADDLE_HEIGHT)
     }
 
-    function drawBall(ctx: CanvasRenderingContext2D) {
+    function drawBall() {
       ctx.fillStyle = '#FFFFFF'
       ctx.beginPath()
       ctx.arc(ballX, ballY, BALL_RADIUS, 0, Math.PI * 2)
       ctx.fill()
     }
 
-    function drawBlocks(ctx: CanvasRenderingContext2D) {
+    function drawBlocks() {
       blocks.forEach((block) => {
         if (block.visible) {
           ctx.fillStyle = '#0000FF'
@@ -65,13 +66,13 @@ export function Game() {
       })
     }
 
-    function drawScore(ctx: CanvasRenderingContext2D) {
+    function drawScore() {
       ctx.fillStyle = '#FFFFFF'
       ctx.font = '16px Arial'
       ctx.fillText(`Score: ${score}`, CANVAS_WIDTH - 100, 20)
     }
 
-    function drawText(ctx: CanvasRenderingContext2D, text: string) {
+    function drawText(text: string) {
       ctx.fillStyle = '#FFFFFF'
       ctx.font = '32px Arial'
       ctx.fillText(text, CANVAS_WIDTH / 2 - 100, CANVAS_HEIGHT / 2)
@@ -128,7 +129,7 @@ export function Game() {
       }
     }
 
-    function draw(ctx: CanvasRenderingContext2D) {
+    function draw() {
       ctx.fillStyle = '#000000'
       ctx.fillRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT)
 
