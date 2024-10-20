@@ -53,31 +53,39 @@ export function Game() {
     }
 
     function drawBall() {
-      ctx.fillStyle = '#FFFFFF'
-      ctx.beginPath()
-      ctx.arc(ballX, ballY, BALL_RADIUS, 0, Math.PI * 2)
-      ctx.fill()
+		if (ctx) {
+            ctx.fillStyle = '#FFFFFF'
+            ctx.beginPath()
+            ctx.arc(ballX, ballY, BALL_RADIUS, 0, Math.PI * 2)
+            ctx.fill()
+		}
     }
 
     function drawBlocks() {
       blocks.forEach((block) => {
         if (block.visible) {
-          ctx.fillStyle = '#0000FF'
-          ctx.fillRect(block.x, block.y, BLOCK_WIDTH, BLOCK_HEIGHT)
+			if (ctx) {
+				ctx.fillStyle = '#0000FF'
+                ctx.fillRect(block.x, block.y, BLOCK_WIDTH, BLOCK_HEIGHT)
+			}
         }
       })
     }
 
     function drawScore() {
-      ctx.fillStyle = '#FFFFFF'
-      ctx.font = '16px Arial'
-      ctx.fillText(`Score: ${score}`, CANVAS_WIDTH - 100, 20)
+		if (ctx) {
+			ctx.fillStyle = '#FFFFFF'
+            ctx.font = '16px Arial'
+            ctx.fillText(`Score: ${score}`, CANVAS_WIDTH - 100, 20)
+		}
     }
 
     function drawText(text: string) {
-      ctx.fillStyle = '#FFFFFF'
-      ctx.font = '32px Arial'
-      ctx.fillText(text, CANVAS_WIDTH / 2 - 100, CANVAS_HEIGHT / 2)
+		if (ctx) {
+			ctx.fillStyle = '#FFFFFF'
+			ctx.font = '32px Arial'
+			ctx.fillText(text, CANVAS_WIDTH / 2 - 100, CANVAS_HEIGHT / 2)
+		}
     }
 
     // Game logic
