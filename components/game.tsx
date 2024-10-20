@@ -46,8 +46,10 @@ export function Game() {
 
     // Draw functions
     function drawPaddle() {
-      ctx.fillStyle = '#FFFFFF'
-      ctx.fillRect(paddleX, CANVAS_HEIGHT - PADDLE_HEIGHT - 30, PADDLE_WIDTH, PADDLE_HEIGHT)
+        if (ctx) {
+            ctx.fillStyle = '#FFFFFF'
+            ctx.fillRect(paddleX, CANVAS_HEIGHT - PADDLE_HEIGHT - 30, PADDLE_WIDTH, PADDLE_HEIGHT)
+          }
     }
 
     function drawBall() {
