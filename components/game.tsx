@@ -44,19 +44,19 @@ export function Game() {
     }
 
     // Draw functions
-    function drawPaddle() {
+    function drawPaddle(ctx: CanvasRenderingContext2D) {
       ctx.fillStyle = '#FFFFFF'
       ctx.fillRect(paddleX, CANVAS_HEIGHT - PADDLE_HEIGHT - 30, PADDLE_WIDTH, PADDLE_HEIGHT)
     }
 
-    function drawBall() {
+    function drawBall(ctx: CanvasRenderingContext2D) {
       ctx.fillStyle = '#FFFFFF'
       ctx.beginPath()
       ctx.arc(ballX, ballY, BALL_RADIUS, 0, Math.PI * 2)
       ctx.fill()
     }
 
-    function drawBlocks() {
+    function drawBlocks(ctx: CanvasRenderingContext2D) {
       blocks.forEach((block) => {
         if (block.visible) {
           ctx.fillStyle = '#0000FF'
@@ -65,13 +65,13 @@ export function Game() {
       })
     }
 
-    function drawScore() {
+    function drawScore(ctx: CanvasRenderingContext2D) {
       ctx.fillStyle = '#FFFFFF'
       ctx.font = '16px Arial'
       ctx.fillText(`Score: ${score}`, CANVAS_WIDTH - 100, 20)
     }
 
-    function drawText(text: string) {
+    function drawText(ctx: CanvasRenderingContext2D, text: string) {
       ctx.fillStyle = '#FFFFFF'
       ctx.font = '32px Arial'
       ctx.fillText(text, CANVAS_WIDTH / 2 - 100, CANVAS_HEIGHT / 2)
@@ -128,7 +128,7 @@ export function Game() {
       }
     }
 
-    function draw() {
+    function draw(ctx: CanvasRenderingContext2D) {
       ctx.fillStyle = '#000000'
       ctx.fillRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT)
 
