@@ -1,18 +1,15 @@
 'use client'
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useRef } from 'react';
 
 export function Game() {
-  const canvasRef = useRef<HTMLCanvasElement>(null)
-
+  const canvasRef = useRef<HTMLCanvasElement>(null);
   useEffect(() => {
     if (!canvasRef.current) {
-      throw new Error('objectがnull')
+      throw new Error('objectがnull');
     }
-    const canvas = canvasRef.current
-    if (!canvas) return
-
-    const ctx = canvas.getContext('2d')
-    if (!ctx) return
+    const canvas = canvasRef.current;
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return;
 
     // Game constants
     const CANVAS_WIDTH = 800
