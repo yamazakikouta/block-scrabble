@@ -169,11 +169,11 @@ export function Game() {
     function handleMouseMove(e: MouseEvent) {
       if (canvas) {
         const rect = canvas.getBoundingClientRect()
+        const mouseX = e.clientX - rect.left
+        paddleX = mouseX - PADDLE_WIDTH / 2
+        if (paddleX < 0) paddleX = 0
+        if (paddleX + PADDLE_WIDTH > CANVAS_WIDTH) paddleX = CANVAS_WIDTH - PADDLE_WIDTH
       }
-      const mouseX = e.clientX - rect.left
-      paddleX = mouseX - PADDLE_WIDTH / 2
-      if (paddleX < 0) paddleX = 0
-      if (paddleX + PADDLE_WIDTH > CANVAS_WIDTH) paddleX = CANVAS_WIDTH - PADDLE_WIDTH
     }
 
     function handleKeyDown(e: KeyboardEvent) {
