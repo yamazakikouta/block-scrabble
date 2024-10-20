@@ -5,6 +5,9 @@ export function Game() {
   const canvasRef = useRef<HTMLCanvasElement>(null)
 
   useEffect(() => {
+    if (!canvasRef.current) {
+      throw new Error('objectがnull')
+    }
     const canvas = canvasRef.current
     if (!canvas) return
 
