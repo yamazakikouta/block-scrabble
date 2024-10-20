@@ -140,8 +140,10 @@ export function Game() {
     }
 
     function draw() {
-      ctx.fillStyle = '#000000'
-      ctx.fillRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT)
+		if (ctx) {
+			ctx.fillStyle = '#000000'
+			ctx.fillRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT)
+		}
 
       drawPaddle()
       drawBall()
