@@ -167,7 +167,9 @@ export function Game() {
 
     // Event listeners
     function handleMouseMove(e: MouseEvent) {
-      const rect = canvas.getBoundingClientRect()
+      if (canvas) {
+        const rect = canvas.getBoundingClientRect()
+      }
       const mouseX = e.clientX - rect.left
       paddleX = mouseX - PADDLE_WIDTH / 2
       if (paddleX < 0) paddleX = 0
